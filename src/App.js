@@ -52,8 +52,13 @@ class App extends React.Component {
     return (
       <div className='main' >
         <div className = 'Chart1'>
-          <ReactFC type="column2d" width="100%" dataFormat="JSON" dataSource={newDataSource}/>
+          <ReactFC type="column3d" width="100%" dataFormat="JSON" dataSource={newDataSource}/>
         </div>
+        <div className = 'Chart2'>
+          <ReactFC type="bar3d" width="100%" dataFormat="JSON" dataSource={newDataSource}/>
+        </div>
+
+        
       </div>
     );
   }

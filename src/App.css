@@ -8,3 +8,8 @@
     grid-column-end: 7;
     
 }
+.Chart2 {
+    grid-column-start: 7;
+    grid-column-end: 13;
+    
+}
