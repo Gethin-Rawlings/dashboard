@@ -1,0 +1,10 @@
+.main {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+}
+
+.Chart1 {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    
+}

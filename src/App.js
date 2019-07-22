@@ -17,39 +17,44 @@ class App extends React.Component {
         dataSource : {
           chart: {
             caption: "Calls opened today",
-            theme: "candy"
+            theme: "candy",
+            xAxisName: 2
           }
         }
       }
     }
     
   async  componentWillMount() {
+    this.getData();
+    this.interval = setInterval(this.getData, 60000);
+  };
+
+  getData = async () => {
     try {
       const url = 'http://localhost:5000/customWidgetData';
       const data = await getChartData(url)
       this.setState({callsOpened: data})
-      console.log(JSON.stringify(`whats going on ${this.state.callsOpened}`))
     } catch (error) {
       this.setState({ requestFailed: true })
     }
-  };
+  }
+  
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
 
   render() {
     if (this.state.requestFailed) return <p>Failed!</p>
     let dataSource = this.state.dataSource
     let callsOpened = this.state.callsOpened
     let newDataSource = {...dataSource, data : callsOpened}
-    console.log(`calls opened  ${JSON.stringify(callsOpened)}`);
-
+    console.log(newDataSource)
     return (
-      <div className = 'Chart 1'>
-        <ReactFC
-        type="column2d"
-        dataFormat="JSON"
-        dataSource={newDataSource}
-      />
+      <div className='main' >
+        <div className = 'Chart1'>
+          <ReactFC type="column2d" width="100%" dataFormat="JSON" dataSource={newDataSource}/>
+        </div>
       </div>
-      
     );
   }
 }
