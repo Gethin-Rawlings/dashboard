@@ -5,6 +5,7 @@ import Charts from "fusioncharts/fusioncharts.charts";
 import ReactFC from "react-fusioncharts";
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
 import { getChartData }  from './apiCalls'
+import HourlyCallsOpened from './components/HourlyCallsOpened';
 
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -18,7 +19,8 @@ class App extends React.Component {
           chart: {
             caption: "Calls opened today",
             theme: "candy",
-            xAxisName: 2
+            xAxisName: 2,
+            drawcrossline: "1"
           }
         }
       }
@@ -55,8 +57,33 @@ class App extends React.Component {
           <ReactFC type="column3d" width="100%" dataFormat="JSON" dataSource={newDataSource}/>
         </div>
         <div className = 'Chart2'>
-          <ReactFC type="bar3d" width="100%" dataFormat="JSON" dataSource={newDataSource}/>
+          <HourlyCallsOpened />
         </div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+
 
         
       </div>
