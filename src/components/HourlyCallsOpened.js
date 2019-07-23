@@ -8,7 +8,6 @@ import { getChartData }  from '../apiCalls'
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
 function HourlyCallsOpened() {
-    // Declare a new state variable, which we'll call "data"
     const [calls, setCalls] = useState([]);
     const [requestFailed, setRequestFailed] = useState(false);
     const chart = {
@@ -21,7 +20,7 @@ function HourlyCallsOpened() {
   
     useEffect( () => {
         getData();
-        let interval = setInterval(getData, 30000);
+        let interval = setInterval(getData, 60000);
         return function cleanup() {
             clearInterval(interval);
           };
