@@ -8,13 +8,13 @@ import { getChartData }  from '../apiCalls'
 
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
-function HourlyCalls () {
+function Chart2d (props) {
 
     const [calls, setCalls] = useState([]);
     const [requestFailed ,setRequestFailed] = useState(false);
     const chart = {
         chart: {
-          caption: "Calls open by Queue",
+          caption: props.title,
           theme: "candy",
           drawcrossline: "1"
         }
@@ -27,10 +27,9 @@ function HourlyCalls () {
         }
     },[])
 
-    async function getData()  {
+    async function getData(url)  {
         try {
-          const url = 'http://localhost:5000/customOpenCalls';
-          const data = await getChartData(url)
+          const data = await getChartData(props.url)
           setCalls(data)
         } catch (error) {setRequestFailed(true)
         }
@@ -41,9 +40,9 @@ function HourlyCalls () {
       if (calls) {
         return (
             <div>
-                <ReactFC type="bar2d" width="100%" dataFormat="JSON" dataSource={dataSource}/>
+                <ReactFC type={props.type} width="100%" dataFormat="JSON" dataSource={dataSource}/>
             </div>
             )
       } 
 }
-export default HourlyCalls;
+export default Chart2d;

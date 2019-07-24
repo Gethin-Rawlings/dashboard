@@ -2,14 +2,20 @@
     display: grid;
     grid-template-columns: repeat(12,1fr);
 }
-
 .Chart1 {
+    display:grid;
     grid-column-start: 1;
-    grid-column-end: 7;
-    
+    grid-column-end: 7;  
 }
 .Chart2 {
     grid-column-start: 7;
-    grid-column-end: 13;
-    
+    grid-column-end: 13; 
+}
+.Chart3 {
+    grid-column-start: 1;
+    grid-column-end: 7;  
+}
+.Chart4 {
+    grid-column-start: 7;
+    grid-column-end: 13;   
 }
