@@ -2,12 +2,12 @@
     display: grid;
     grid-template-columns: repeat(12,1fr);
 }
-.Chart1 {
+.openCallsQueue {
     display:grid;
     grid-column-start: 1;
     grid-column-end: 7;  
 }
-.Chart2 {
+.callsOpenedByHour {
     grid-column-start: 7;
     grid-column-end: 13; 
 }

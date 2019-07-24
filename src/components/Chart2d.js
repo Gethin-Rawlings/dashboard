@@ -20,20 +20,19 @@ function Chart2d (props) {
         }
     }
     useEffect( ()=> {
-        getData();
-        let interval = setInterval(getData, 60000);
-        return function cleanup() {
-            clearInterval(interval);
-        }
-    },[])
-
-    async function getData(url)  {
+      async function getData()  {
         try {
           const data = await getChartData(props.url)
           setCalls(data)
         } catch (error) {setRequestFailed(true)
         }
       }
+        getData();
+        let interval = setInterval(getData, 60000);
+        return function cleanup() {
+            clearInterval(interval);
+        }
+    },[props.url])
 
       if (requestFailed) return <p>Failed!</p>
       let dataSource = {...chart, data : calls}

@@ -11,11 +11,11 @@ function App()  {
     const bar2d="Bar2d";
     return (
     <div className='main' >
-      <div className = 'Chart1'>
-        <Chart2d url = {openCallsUrl} title = {openCallstitle} type={bar2d}/>
+      <div className='openCallsQueue'>
+        <Chart2d url={openCallsUrl} title={openCallstitle} type={bar2d}/>
       </div>
-      <div className = 'Chart2'>
-        <Chart2d url= {openedTodayUrl} title={openedtodatTitle} type={column2d}/>
+      <div className='callsOpenedByHour'>
+        <Chart2d url={openedTodayUrl} title={openedtodatTitle} type={column2d}/>
       </div>
     </div>
    )
