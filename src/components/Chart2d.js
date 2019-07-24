@@ -5,6 +5,7 @@ import Charts from "fusioncharts/fusioncharts.charts";
 import ReactFC from "react-fusioncharts";
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
 import { getChartData }  from '../apiCalls'
+import { async } from 'q';
 
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
@@ -20,7 +21,7 @@ function Chart2d (props) {
         }
     }
     useEffect( ()=> {
-      async function getData()  {
+      const getData = async() =>  {
         try {
           const data = await getChartData(props.url)
           setCalls(data)
