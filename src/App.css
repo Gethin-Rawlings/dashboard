@@ -11,11 +11,16 @@
     grid-column-start: 7;
     grid-column-end: 13; 
 }
-.Chart3 {
+.callsByUsersWeekly {
+    display: grid;
     grid-column-start: 1;
-    grid-column-end: 7;  
+    grid-column-end: 4;  
+    background-color: rgb(38, 42, 51);
+    color: white;
+    width: 100%;
 }
 .Chart4 {
     grid-column-start: 7;
     grid-column-end: 13;   
 }
+

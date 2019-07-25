@@ -1,25 +1,11 @@
 import React, { useState, useEffect }  from 'react';
-
-import FusionCharts from "fusioncharts";
-import Charts from "fusioncharts/fusioncharts.charts";
-import ReactFC from "react-fusioncharts";
-import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
 import { getChartData }  from '../apiCalls'
 
-
-ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
-
-function Chart2d (props) {
+function Lists (props) {
 
     const [calls, setCalls] = useState([]);
     const [requestFailed ,setRequestFailed] = useState(false);
-    const chart = {
-        chart: {
-          caption: props.title,
-          theme: "candy",
-          drawcrossline: "1"
-        }
-    }
+    
     useEffect( ()=> {
       const getData = async() =>  {
         try {
@@ -35,15 +21,33 @@ function Chart2d (props) {
         }
     },[props.url])
 
+    const table = (calls) => {
+        let table = [];
+        for (let i=0;i<calls.length;i++){
+            let children = [];
+            let row = Object.values(calls[i]);
+            console.log(row[0])
+            row.map(data => children.push(<td id={i} key={data}>{data}</td>))
+            table.push(<tr key={row}>{children}</tr>)
+        }
+        return table
+    }
+
       if (requestFailed) return <p>Failed!</p>
-      let dataSource = {...chart, data : calls}
-      console.log(calls)
+      
       if (calls) {
         return (
-            <div>
-                <ReactFC type={props.type} width="100%" dataFormat="JSON" dataSource={dataSource}/>
-            </div>
+            <section>
+                <h4>
+                    {props.title}
+                </h4>
+                <table>
+                    <tbody>
+                        {table(calls)}
+                    </tbody> 
+                </table>
+            </section>
             )
       } 
 }
-export default Chart2d;
+export default Lists;
