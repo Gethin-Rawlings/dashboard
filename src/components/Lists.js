@@ -26,7 +26,6 @@ function Lists (props) {
         for (let i=0;i<calls.length;i++){
             let children = [];
             let row = Object.values(calls[i]);
-            console.log(row[0])
             row.map(data => children.push(<td id={i} key={data}>{data}</td>))
             table.push(<tr key={row}>{children}</tr>)
         }
