@@ -1,17 +1,74 @@
 .main {
     display: grid;
     grid-template-columns:repeat(12,1fr);
-    grid-template-rows: 1fr, 1fr;
-    
+    grid-template-rows: 1fr 1fr;
+
+}
+
+body {
+    background-color: rgb(38, 42, 51);
 }
 
 .Chart1 {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    
+    grid-column-start: 3;
+    grid-column-end: 8;
+    grid-row-start:1;
+    grid-row-end: 2;
+    height: auto;
 }
 .Chart2 {
-    grid-column-start: 9;
+    grid-column-start: 8;
     grid-column-end: 13;
+    height: auto;
+}
+
+.Engineer{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start:1;
+    grid-row-end: 2;
+    background-color: rgb(38, 42, 51);
+    color: white;
+    font-size: 75%;
     
 }
+.EnginnerCalls {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-end: 2;
+    background-color: rgb(38, 42, 51);
+    color: white;
+    font-size: 75%;
+}
+
+.list{
+    display: grid;   
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30px 1fr;
+    grid-template-areas: 
+                        "title title"
+                        "engineer calls";
+}
+/* .labels{
+    grid-area: engineer;
+    justify-self: start;
+}
+.values{
+    grid-area: calls;
+} */
+ul{
+    list-style: none;
+    color: white;
+}
+.opened {
+    color: white;
+    grid-area: title;
+    justify-self: center;
+    align-self: center;
+    font-size: 110%;
+}
+
+ul[title]::before {
+    content: attr(title);
+    
+  }
