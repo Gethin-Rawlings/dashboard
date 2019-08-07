@@ -1,11 +1,9 @@
 import React, { useState, useEffect }  from 'react';
-
 import FusionCharts from "fusioncharts";
 import Charts from "fusioncharts/fusioncharts.charts";
 import ReactFC from "react-fusioncharts";
 import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.candy';
 import { getChartData }  from '../apiCalls'
-
 
 ReactFC.fcRoot(FusionCharts, Charts, FusionTheme);
 
