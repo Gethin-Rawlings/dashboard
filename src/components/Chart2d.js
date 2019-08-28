@@ -37,7 +37,6 @@ function Chart2d (props) {
 
       if (requestFailed) return <p>Failed!</p>
       let dataSource = {...chart, data : calls}
-      console.log(calls)
       if (calls) {
         return (
             <div>
