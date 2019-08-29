@@ -7,3 +7,4 @@ export const getChartData = async(url) => {
         return await response.json()
     }
 };
+
